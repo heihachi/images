@@ -9,7 +9,7 @@ export INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
 
 # Replace Startup Variables
 echo ${STARTUP}
-MODIFIED_STARTUP=$(eval echo $(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g'))
+MODIFIED_STARTUP=$(eval echo "$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g')")
 echo ${MODIFIED_STARTUP}
 echo ":/home/container$ ${MODIFIED_STARTUP}"
 
